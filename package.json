@@ -9,7 +9,8 @@
     "build:second-app": "ng build --project second-app",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:first-app": "ng test --watch false --code-coverage true --browsers ChromeHeadless"
+    "test:first-app": "ng test --project first-app --watch false --code-coverage true --browsers ChromeHeadless",
+    "test:second-app": "ng test --project second-app --watch false --code-coverage true --browsers ChromeHeadless"
   },
   "private": true,
   "dependencies": {

@@ -32,7 +32,7 @@ jobs:
         run: npm install
 
       - name: Test
-        run: npm run test:first-app
+        run: npm run test:second-app
 
       - uses: actions/checkout@v2
         with:
