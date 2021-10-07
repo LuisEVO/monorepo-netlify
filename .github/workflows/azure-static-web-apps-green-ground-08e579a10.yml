@@ -7,7 +7,7 @@ on:
 
     paths:
       - projects/second-app/**
-      - .github/workflows/azure-static-web-apps-polite-mushroom-0e9bab110.yml
+      - .github/workflows/azure-static-web-apps-green-ground-08e579a10.yml
 
   pull_request:
     types: [opened, synchronize, reopened, closed]
@@ -16,7 +16,7 @@ on:
 
     paths:
       - projects/second-app/**
-      - .github/workflows/azure-static-web-apps-polite-mushroom-0e9bab110.yml
+      - .github/workflows/azure-static-web-apps-green-ground-08e579a10.yml
 
 jobs:
   build_and_deploy_job:
