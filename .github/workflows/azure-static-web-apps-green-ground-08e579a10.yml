@@ -24,6 +24,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Test
+        run: npm run test:first-app
+
       - uses: actions/checkout@v2
         with:
           submodules: true
