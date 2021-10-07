@@ -4,11 +4,20 @@ on:
   push:
     branches:
       - main
+
+    paths:
+      - projects/first-app/**
+      - .github/workflows/azure-static-web-apps-polite-mushroom-0e9bab110.yml
+
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
 
+    paths:
+      - projects/first-app/**
+      - .github/workflows/azure-static-web-apps-polite-mushroom-0e9bab110.yml
+      
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -25,6 +34,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_POLITE_MUSHROOM_0E9BAB110 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
+          app_build_command: npm run build:first-app
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path

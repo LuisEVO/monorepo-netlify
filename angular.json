@@ -24,7 +24,8 @@
             "tsConfig": "projects/first-app/tsconfig.app.json",
             "assets": [
               "projects/first-app/src/favicon.ico",
-              "projects/first-app/src/assets"
+              "projects/first-app/src/assets",
+              "projects/first-app/src/staticwebapp.config.json"
             ],
             "styles": [
               "projects/first-app/src/styles.css"
