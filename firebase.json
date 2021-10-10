@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "predeploy": "firebase:first-app",
+    "predeploy": "npm run firebase:first-app",
     "public": "build/first-app",
     "ignore": [
       "firebase.json",
