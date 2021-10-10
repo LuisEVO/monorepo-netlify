@@ -1,10 +1,24 @@
 {
-  "hosting": {
-    "public": "dist/first-app",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  }
+  "hosting": [
+    {
+      "target": "first-app",
+      "predeploy": "npm run firebase:first-app",
+      "public": "dist/first-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "second-app",
+      "predeploy": "npm run firebase:second-app",
+      "public": "dist/second-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ]
 }
