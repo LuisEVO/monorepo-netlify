@@ -1,0 +1,53 @@
+name: AWS First App
+
+on:
+  push:
+    branches:
+      - main
+
+    paths:
+      - projects/first-app/**
+      - .github/workflows/aws-first-app.yml
+
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+    paths:
+      - projects/first-app/**
+      - .github/workflows/aws-first-app.yml
+      
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build:first-app
+
+      - name: Deploy
+        uses: reggionick/s3-deploy@v3
+        with:
+          folder: dist/first-app # ruta del compilado
+          bucket: galaxy-app # nombre del bucket creado en aws
+          bucket-region: us-east-2 # región con la que configuramos el bucket
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
