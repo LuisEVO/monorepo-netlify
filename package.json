@@ -10,7 +10,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:first-app": "ng test --project first-app --watch false --code-coverage true --browsers ChromeHeadless",
-    "test:second-app": "ng test --project second-app --watch false --code-coverage true --browsers ChromeHeadless"
+    "test:second-app": "ng test --project second-app --watch false --code-coverage true --browsers ChromeHeadless",
+    "firebase:first-app": "npm install && npm run build:first-app"
   },
   "private": true,
   "dependencies": {
