@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "galaxy-training"
+  },
+  "targets": {
+    "galaxy-training": {
+      "hosting": {
+        "second-app": [
+          "second-app-7b185"
+        ]
+      }
+    }
   }
 }
